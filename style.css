@@ -2,15 +2,17 @@
     --accent-color: #ED4B1E;
     --dark-color: #2E2320;
     --mid-color: #fbfbfb33;
+    --middle-color: #575656e3;
     --light-color: #ffffff;
     --lighter-color: ##ffffff5c;
 }
 
 * {
     box-sizing: border-box;
+    padding: 5px;
 }
 
-body {
+body { 
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
 }
@@ -58,10 +60,43 @@ a:hover {
 
 /* Header */
 
-header {
+/* header {
     background-color: rgba(0, 0, 0, 0.9);
+} */
+header {
+    /* position: fixed; */
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 10px;
+    transition: all .50s ease;
 }
 
+header ul {
+    list-style: none;
+    margin: 0;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo i {
+    color: var(--accent-color);
+    /* font-size: 28px; */
+    margin-right: 10px;
+}
+.logo span {
+    color: var(--light-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Logo - colors */
 .logo-header {
     /* black - filter: invert(1); */
     /* white */
@@ -72,10 +107,72 @@ header {
     filter: brightness(0) saturate(100%) invert(26%) sepia(1%) saturate(937%) hue-rotate(314deg) brightness(96%) contrast(97%);
 }
 
+.nav-bar {
+    display: flex;
+    background-color: var(--mid-color);
+    border-radius: 20px;
+    padding: 10px 0;
+}
+.nav-bar a {
+    color: var(--light-color);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 0;
+    margin: 0 10px;
+    transition: all .50s ease;
+}
+.nav-bar a:hover {
+    color: var(--accent-color);
+}
+.nav-bar a.active {
+    color: var(--light-color);
+    background-color: var(--mid-color);
+    padding: 10px;
+    border-radius: 20px;
+}
+.nav-bar a.active:hover {
+    color: var(--accent-color);
+    background-color: var(--light-color);
+}
+.account {
+    display: flex;
+    align-items: center;  
+}
+.account a {
+    /* margin-right: 25px;
+    margin-left: 10px; */
+    color: var(--light-color);
+    /* font-size: 1.1rem; */
+    font-weight: 500;
+    transition: all .50s ease;
+}
+.user {
+    display: flex;
+    align-items: center;
+}
+.user i {
+    color: var(--light-color); 
+    margin-right: 3px; 
+}
+.account a:hover {
+    color: var(--accent-color);
+}
+#menu-icon {
+    color: var(--dark-color); 
+    font-size: 1.2rem;
+    margin-left: 15px;
+    background-color: var(--light-color);
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
+
+
 a.login {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
+    /* margin-top: 0;
+    margin-bottom: 1rem; */
     color: var(--light-color);
     text-decoration: none;
 }
@@ -127,8 +224,8 @@ a.nav-link.active {
 .hero {
     position: relative;
     height: 100vh;
-    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/worship-conference.jpg"); */
-    background-image: url("images/worship-conference.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/worship-conference.jpg");
+    /* background-image: url("images/worship-conference.jpg"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -149,11 +246,16 @@ a.nav-link.active {
     font-weight: 500;
     font-size: 2rem;
     line-height: 2.5rem; 
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.6);
+    animation: fadeInDown;
+    animation-duration: 1.5s;
 }
 .hero-text h1 {
     font-weight: 900;
     font-size: 3rem;
     line-height: 3rem;
+    animation: fadeInDown;
+    animation-duration: 1s;
 } 
 
 .hero .btn-primary {
@@ -175,7 +277,7 @@ a.nav-link.active {
 
 }
 .hero .btn-secondary:hover {
-    background-color: var(--accent-color);    
+    background-color: var(--accent-color); 
 }
 
 .hero-mid {
@@ -253,12 +355,18 @@ a.nav-link.active {
 .btn-primary:hover {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
+    transform: scale(1.15);
+    border-radius: 20px;
 }
 
 .btn-secondary {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
     transition: all 0.3s ease-in-out;
+}
+.btn-secondary:hover {    
+    transform: scale(1.15);
+    border-radius: 20px;
 }
 
 .btn-outline-primary {
@@ -271,6 +379,8 @@ a.nav-link.active {
     border-color: var(--accent-color);
     color: var(--accent-color);
     text-decoration: none !important;
+    transform: scale(1.15);
+    border-radius: 20px;
 }
 
 /* Sections */
@@ -287,6 +397,10 @@ a.nav-link.active {
     font-size: 3.4rem;
     line-height: 3.4rem;
     text-transform: uppercase;
+}
+.cta p {
+    animation: zoomIn;
+    animation-duration: 1.5s;
 }
 
 /* Section - Light */ 
@@ -485,6 +599,38 @@ footer .nav-btn, footer .nav-links {
     text-decoration: none;
 }
 
+/* Animation */
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.75;
+    }    
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+.anime-appear2 {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 10% cover 50%;
+}
+
+@keyframes appearTranslate {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }    
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+h2,.anime-appear {
+    animation: appearTranslate linear;
+    animation-timeline: view();
+    animation-range: entry 10% cover 40%;
+}
 
 /* Swiper */
 
@@ -528,6 +674,57 @@ footer .nav-btn, footer .nav-links {
 
 
 /* Media queries */
+
+@media (max-width: 1280px) {
+    header {
+        padding: 14px 2%;
+        transition: .2s;
+    }
+    .nav-bar a {
+        padding: 5px 0;
+        margin: 0 20px;
+    }
+}
+@media (max-width: 1023.98px) {
+    #menu-icon {
+        display: block;
+    }
+    .nav-bar {
+        position: absolute;
+        top: 16%;
+        right: -100%;
+        width: 270px;
+        /* height: 100%; */
+        background: var(--middle-color);
+        backdrop-filter: blur(3px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+        transition: all .50s ease;
+        z-index: 10002;
+    }
+    .nav-bar a {
+        display: block;
+        margin: 12px 0;
+        padding: 0 25px;
+        transition: all .50s ease;
+    }
+    .nav-bar a:hover {
+        color: var(--accent-color);
+        transform: translateY(-2px);
+    }
+    .nav-bar a.active {
+        color: var(--light-color);
+        text-align: center;
+    }
+    .nav-bar.open {
+        right: 2%;
+    }
+    a.user span {
+        display: none;
+    }
+} 
 
 @media (max-width: 767.98px) {  
     a.login::after {

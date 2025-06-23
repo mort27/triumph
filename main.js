@@ -76,3 +76,12 @@ var swiper = new Swiper(".mySwiper", {
     },
     },
 });
+
+// Nav-bar mobile
+let menu = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.nav-bar');
+
+menu.onclick = () => {
+    menu.classList.toggle('fa-times');
+    navbar.classList.toggle('open');
+}
