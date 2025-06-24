@@ -322,6 +322,26 @@ a.nav-link.active {
     color: var(--accent-color); 
     transform: translateY(-2px);
 }
+
+/* #social .icon-wrapper a::before {
+    font-size: 0.75rem;
+    content: attr(data-social);
+    position: absolute;
+    background-color: var(--accent-color);
+    color: var(--light-color);
+    text-decoration: none;
+    padding: 0.5em 1em;
+    margin: 0 -20px;
+    border-radius: 100px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05); 
+    transform: translateY(30px) rotate(25deg); 
+    opacity: 0;
+}
+
+#social .icon-wrapper a:hover::before {
+    transform: translateY(35px) rotate(0);
+    opacity: 1;
+}  */
  
 /* Grid */
 
@@ -626,10 +646,26 @@ footer .nav-btn, footer .nav-links {
         transform: translateX(0px);
     }
 }
-h2,.anime-appear {
+.anime-appear {
     animation: appearTranslate linear;
-    animation-timeline: view();
-    animation-range: entry 10% cover 40%;
+    animation-timeline: view(30% 5%);
+    /* animation-range: entry 10% cover 40%; */
+}
+
+.anime-show {
+    animation: text-appear both;
+    animation-timeline: view(10% 5%);
+    /* animation-range: entry 20% cover 80vh; */
+}
+@keyframes text-appear {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Swiper */
